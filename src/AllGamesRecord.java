@@ -104,9 +104,11 @@ public class AllGamesRecord {
      */
     @Override
     public String toString() {
-        System.out.println("Average Score: " + average());
-        System.out.println("Top two scores: " + highGameList(2));
-        return records.toString();
+        StringBuilder output = new StringBuilder();
+        output.append("Average Score: ").append(average()).append("\n");
+        output.append("Top two scores: ").append(highGameList(2)).append("\n");
+        //output.append(records.toString());
+        return output.toString();
     }
 
     /**
