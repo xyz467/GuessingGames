@@ -1,5 +1,6 @@
 import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Class creates a Mastermind games that generates a secret code, does not show it, and then
@@ -96,7 +97,7 @@ public class Mastermind extends GuessingGame{
             }
             if ("QUIT".equals(guess)) {
                 System.out.println("Thanks for playing! Secret was: " + secretCode);
-                break;
+                return new GameRecord(0, "MasterMind User");
             }
 
             StringBuilder secretSB = new StringBuilder(secretCode);
@@ -121,11 +122,12 @@ public class Mastermind extends GuessingGame{
      */
     @Override
     public boolean playNext(){
-        if(super.playNext()){
-            generateSecretCode();
-            return true;
-        }
-        return false;
+        System.out.println("Play Mastermind Game? (y/n): ");
+        Scanner scanner = new Scanner(System.in);
+        char choice = scanner.nextLine().charAt(0);
+        generateSecretCode();
+        return (choice == 'Y' || choice == 'y');
+
     }
 
     /**

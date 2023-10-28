@@ -16,11 +16,7 @@ public abstract class GuessingGame {
      * playNext method asks if the next game should be played
      * @return boolean
      */
-    public  boolean playNext() {
-        System.out.println("Play another game? (y/n): ");
-        char choice = scanner.nextLine().charAt(0);
-        return (choice == 'Y' || choice == 'y');
-    }
+    public abstract boolean playNext();
 
     /**
      * playAll method plays a set of games and records and returns an AllGamesRecord object for the set.
@@ -28,11 +24,10 @@ public abstract class GuessingGame {
      */
     public AllGamesRecord playAll(){
         AllGamesRecord allGamesRecord = new AllGamesRecord();
-        do{
+        while(playNext()){
             GameRecord record = play();
             allGamesRecord.add(record);
         }
-        while(playNext());
         return allGamesRecord;
     }
 

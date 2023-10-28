@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * WheelOfFortuneUserGame class that plays a Wheel of Fortune game. The user will be prompted to guess letters
@@ -79,14 +80,15 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
      * @return boolean
      */
     @Override
-    public boolean playNext(){
-        if(!phrases.isEmpty()) {
-            if(super.playNext()) {
-                wheelOfFortuneUser.reset(); //resets previous guesses for the next phrase
-                return true;
-            }
-        }
-        return false;
+    public boolean playNext() {
+        if (!phrases.isEmpty()) {
+            wheelOfFortuneUser.reset(); //resets previous guesses for the next phrase
+            System.out.println("Play Wheel of Fortune Game? (y/n): ");
+            Scanner scanner = new Scanner(System.in);
+            char choice = scanner.nextLine().charAt(0);
+            return (choice == 'Y' || choice == 'y');
+        } else
+            return false;
     }
 
     /**
