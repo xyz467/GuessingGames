@@ -8,8 +8,8 @@ import java.util.Scanner;
  */
 public class WheelOfFortuneUser implements WheelOfFortunePlayer{
     protected StringBuilder previousGuesses;
-    String currentPhrase;
-    public WheelOfFortuneUser(){
+    private String currentPhrase;
+    protected WheelOfFortuneUser(){
         previousGuesses = new StringBuilder();
     }
     /**
